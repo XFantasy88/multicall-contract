@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require('dotenv').config()
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -6,9 +7,9 @@ module.exports = {
 
   networks: {
     dogetest: {
-      url: 'https://rpc-testnet.dogechain.dog/',
+      url: process.env.DOGE_TESTNET_RPC_URL,
       chainId: 568,
-      accounts: [],
+      accounts: [process.env.PRIVATE_KEY],
       timeout: 600000000
     }
   }
